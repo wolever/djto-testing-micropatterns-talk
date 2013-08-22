@@ -47,6 +47,7 @@ Where do I Find this Magical Factory?
 Check out ``model_mommy``: https://github.com/vandersonmota/model_mommy
 
 ::
+
     from model_mommy import mommy
 
     class Factory(object):
@@ -60,7 +61,7 @@ Check out ``model_mommy``: https://github.com/vandersonmota/model_mommy
             return mommy.make_one(self.model, **custom_attrs)
 
 
-\o/
+\\o/
 
 Keep ALL fields unique!
 =======================
@@ -69,6 +70,7 @@ Unless a field **should** be the same between two instances, make sure it's
 unique!
 
 ::
+
     gen = StringGenerator()
     Factory = FactoryBase.with_gen(gen)
 
@@ -90,6 +92,7 @@ And it works like this::
 What is this magic ``StringGenerator()``?
 
 ::
+
     from functools import partial
 
     class StringGenerator(object):
@@ -155,9 +158,10 @@ Unicode ALL the things!
 Make sure that **all** your string fields contain unicode:
 
 ::
+
     UserFactory = Factory(User,
         username=gen(u"üser-{num}"),
         first_name=gen(u"Ålex-{num}"),
         last_name=gen(u"Smi†h-{num}"),
-        email=gen("user-{num}@example.com"),
+        email=gen("usér-{num}@example.com"),
     )
